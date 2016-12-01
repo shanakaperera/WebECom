@@ -85,9 +85,9 @@ RECAPTCHA_PUBLIC_KEY, and RECAPTCHA_PRIVATE_KEY
 Put the keys  obtained in the corresponding fields on the .env file. For example: 
 
 ```
-RECAPTCHA_PUBLIC_KEY = antvelRecaptcahPublicKeyObtained
+RECAPTCHA_PUBLIC_KEY = antvelRecaptchaPublicKeyObtained
 
-RECAPTCHA_PRIVATE_KEY = antvelRecaptcahPrivateKeyObtained
+RECAPTCHA_PRIVATE_KEY = antvelRecaptchaPrivateKeyObtained
 ```
 
 ***Note:*** If the ```APP_DEBUG == true```, the reCaptcha will not be applied
