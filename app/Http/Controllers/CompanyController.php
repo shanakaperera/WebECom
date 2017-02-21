@@ -2,15 +2,14 @@
 
 namespace app\Http\Controllers;
 
-/*
- * Antvel - Main Company Controller
- *
- * @author  Gustavo Ocanto <gustavoocanto@gmail.com>
- */
+
 
 use App\Company;
+use app\Helpers\File;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
@@ -98,10 +97,18 @@ class CompanyController extends Controller
     {
         $data = $request->except(['created_at', 'deleted_at']);
         $company = Company::find($id);
+        if ($request->hasFile('logo')) {
+            $file = Input::file('logo');
+            $name = $file->getClientOriginalName();
+//            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+//            $name = $timestamp . '-' . $file->getClientOriginalName();
+            $data['logo'] = '/img/' . $name;
+            $file->move(public_path() . '/img/', $name);
+        }
         $company->update($data);
-
         return redirect()->to('wpanel/profile');
     }
+
 
     /**
      * Remove the specified resource from storage.

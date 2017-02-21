@@ -19,7 +19,7 @@
                 <div id="store-home-carousel" class="carousel slide" data-ride="carousel">
 
                     {{-- indicators --}}
-                    <ol class="carousel-indicators">
+                    <ol class="carousel-indicators" style="bottom: -60px;">
                         @for ($s=0; $s<count($suggestion['carousel']); $s++)
                             <li data-target="#store-home-carousel" data-slide-to="{{ $s }}" @if ($s==0) class="active" @endif ></li>
                         @endfor

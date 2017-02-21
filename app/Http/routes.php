@@ -189,6 +189,7 @@ Route::group(['prefix' => 'wpanel', 'roles' => 'admin', 'middleware' => ['auth',
     Route::get('features', ['uses' => 'ProductDetailsController@index', 'as' => 'features']);
 
     Route::resource('profile', 'CompanyController');
+
 });
 
 /*

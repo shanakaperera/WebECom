@@ -59,8 +59,8 @@
 	                        	{{ trans('product.globals.see_keys') }}
 	                        </button>
 	                    @endif
-	                {!! Form::close() !!}
-	            </div>
+                    +
+                </div>
 	        </div>
 
         @stop
@@ -129,73 +129,79 @@
 
 	                    {!! Form::open(array('url' => route('orders.add_to_order',['cart',$product->id]), 'method' => 'put')) !!}
 
-	                    @if (auth()->user()->id != $product->user_id)
-		                    <div class="row">
-								<div class="col-lg-12">
-									<label for = "quantity">{{ trans('store.quantity_long') }}:</label>
-										{!! Form::selectRange(
-				                            	'quantity', 1,
-				                            	$product->stock, 1,
-				                                ['class' => 'form-control input-sm']
-				                        ) !!}
-			                    </div>
-		                    </div>
 
-		                    <hr>
+                        @if (auth()->user()!=null && auth()->user()->id != $product->user_id)
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label for="quantity">{{ trans('store.quantity_long') }}:</label>
+                                    {!! Form::selectRange(
+                                    'quantity', 1,
+                                    $product->stock, 1,
+                                    ['class' => 'form-control input-sm']
+                                    ) !!}
+                                </div>
+                            </div>
 
-		                    <div class="row">
-		                    	<div class="col-lg-12">
-									<button type="submit" class="btn btn-warning btn-sm full-width">
-										<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;
-										{{ trans('store.add_to_cart') }}
-									</button>
-								</div>
-		                    </div>
+                            <hr>
 
-							<div class="row">&nbsp;</div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn btn-warning btn-sm full-width">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;
+                                        {{ trans('store.add_to_cart') }}
+                                    </button>
+                                </div>
+                            </div>
 
-		                    <div class="row">
+                            <div class="row">&nbsp;</div>
 
-		                    	<div class="col-lg-12">
+                            <div class="row">
 
-										@if (Auth::check())
+                                <div class="col-lg-12">
 
-			                                <div class="dropdown">
+                                    @if (Auth::check())
 
-			                                    <button class="btn btn-default dropdown-toggle btn-sm full-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			                                        <span class="glyphicon glyphicon-heart"></span>&nbsp;
-			                                        {{ trans('store.addToWishList') }}
-			                                        <span class="caret"></span>
-			                                    </button>
+                                        <div class="dropdown">
 
-			                                    <ul class="dropdown-menu dropdown-menu-left btn-sm" aria-labelledby="dropdownMenu1">
-			                                        <li>
-			                                            <a href="{{ route('orders.add_to_order',['wishlist',$product->id]) }}">
-			                                                {{ trans('store.wish_list') }}
-			                                            </a>
-			                                        </li>
-			                                        @if (count($allWishes)>0)
-			                                            <li class="dropdown-header">{{ trans('store.your_wish_lists') }}</li>
-			                                        @endif
-			                                        @foreach($allWishes as $wishList)
-			                                            <li><a href="{{ route('orders.add_to_order_by_id',[$wishList->id,$product->id]) }}">{{ $wishList->description }}</a></li>
-			                                        @endforeach
+                                            <button class="btn btn-default dropdown-toggle btn-sm full-width"
+                                                    type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="true">
+                                                <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                                                {{ trans('store.addToWishList') }}
+                                                <span class="caret"></span>
+                                            </button>
 
-			                                    </ul>
-			                                </div>
+                                            <ul class="dropdown-menu dropdown-menu-left btn-sm"
+                                                aria-labelledby="dropdownMenu1">
+                                                <li>
+                                                    <a href="{{ route('orders.add_to_order',['wishlist',$product->id]) }}">
+                                                        {{ trans('store.wish_list') }}
+                                                    </a>
+                                                </li>
+                                                @if (count($allWishes)>0)
+                                                    <li class="dropdown-header">{{ trans('store.your_wish_lists') }}</li>
+                                                @endif
+                                                @foreach($allWishes as $wishList)
+                                                    <li>
+                                                        <a href="{{ route('orders.add_to_order_by_id',[$wishList->id,$product->id]) }}">{{ $wishList->description }}</a>
+                                                    </li>
+                                                @endforeach
 
-		                                @else
-		                                    <a  href="/login" class="btn btn-info full-width">
-		                                    	<span class="glyphicon glyphicon-heart"></span>&nbsp;
-		                                    	{{ trans('store.addToWishList') }}
-		                                    </a>
-		                                @endif
+                                            </ul>
+                                        </div>
 
-								</div>
-		                    </div>
+                                    @else
+                                        <a href="/login" class="btn btn-info full-width">
+                                            <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                                            {{ trans('store.addToWishList') }}
+                                        </a>
+                                    @endif
 
-							<hr>
-						@endif
+                                </div>
+                            </div>
+
+                            <hr>
+                        @endif
 
 	                    <div class="row">
 	                    	<div class="col-lg-12">
@@ -229,7 +235,8 @@
 	        </div>
 		</div>
 
-		{{-- Product Description --}}
+
+        {{-- Product Description --}}
 		@if (trim($product->description) != '')
 			<div class="row">&nbsp;</div>
 			<div class="page-header">
@@ -332,7 +339,7 @@
 				      appId      : "{{ env('FB_APP_ID') }}",
 				      xfbml      : true,
 				      version    : 'v2.5',
-				      caption    : '{{ $product->name }}',
+                        caption: '{{ $product->name }}'
 				    });
 					FB.ui(
 					{

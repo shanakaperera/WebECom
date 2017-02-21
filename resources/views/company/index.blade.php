@@ -22,7 +22,7 @@
 				  <li><a data-toggle="tab" href="#modules">{{ trans('company.modules')}}</a></li>
 				</ul>
 
-				{!! Form::model($company, ['url'=>'/wpanel/profile/' . $company->id, 'method'=>'PUT','role'=>'form']) !!}
+				{!! Form::model($company, ['url'=>'/wpanel/profile/' . $company->id, 'method'=>'PUT','role'=>'form', 'files'=>true]) !!}
 
 				<div id="my-tab-content" class="tab-content">
 			        <div class="tab-pane active" id="profile">
@@ -73,5 +73,5 @@
 </div>
 @stop
 @section('script')
-@parent
+    @parent
 @stop

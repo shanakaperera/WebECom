@@ -33,6 +33,7 @@ return [
       'brand'               => 'Brand',
       'condition'           => 'Condition',
       'description'         => 'Description',
+      'product_tags'        => 'Product Tags',
       'download_example'    => 'Download an example',
       'gift_card_option'    => '',
       'key_option'          => 'This option allows you to load a text file with a list of keys.<br/>Each key will be sold separately.<br/>Use the same format as in the example.<br/>The product will be disabled when all keys have been sold.',

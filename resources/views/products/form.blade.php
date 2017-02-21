@@ -67,7 +67,15 @@
                         </div>
                         <div class="col-sm-3">
                             {!! Form::label('category_id',trans('product.globals.categories')) !!}:&nbsp;
-                            {!! Form::select('category_id',$categories,null,['class'=>'form-control',$disabled=>$disabled,'required']) !!}
+
+                            <select id="category_id" name="category_id" class="form-control" {{$disabled}}
+                                    required="required">
+                                {{$i=0}}
+                                @foreach($categories as $cat)
+                                    {{$i++}}
+                                    <option value="{{$i}}">{{$cat}}</option>
+                                @endforeach
+                            </select>
                         </div>
                          @if(!$product)
                         <div class="col-sm-3" ng-init="typeItem='{{ $typeItem }}'">
@@ -90,6 +98,15 @@
                         <div class="col-sm-12">
                             {!! Form::label('description',trans('product.inputs_view.description')) !!}:&nbsp;
                             {!! Form::textarea('description',null,['class'=>'form-control','rows'=>'2','required']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            {!! Form::label('pro_tags',trans('product.inputs_view.product_tags')) !!}:&nbsp;
+                            {!!
+                            Form::text('pro_tags',$edit?str_replace('"','',$product->tags):null,['data-role'=>'tagsinput',$disabled=>$disabled])
+                            !!}
                         </div>
                     </div>
 

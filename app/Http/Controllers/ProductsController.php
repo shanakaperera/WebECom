@@ -279,6 +279,7 @@ class ProductsController extends Controller
         $product->brand = $request->input('brand');
         $product->price = $request->input('price');
         $product->condition = $request->input('condition');
+        $product->tags = '"' . $request->input('pro_tags') . '"';
         $product->features = $features;
         $product->type = $request->input('type');
         if ($request->input('type') == 'item') {
@@ -530,6 +531,7 @@ class ProductsController extends Controller
         $product->brand = $request->input('brand');
         $product->price = $request->input('price');
         $product->features = $features;
+        $product->tags = '"' . $request->input('pro_tags') . '"';
         if ($request->input('type') == 'item') {
             $product->stock = $request->input('stock');
             $product->low_stock = $request->input('low_stock');

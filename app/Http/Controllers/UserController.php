@@ -2,11 +2,6 @@
 
 namespace app\Http\Controllers;
 
-/*
- * Antvel - Users Controller
- *
- * @author  Gustavo Ocanto <gustavoocanto@gmail.com>
- */
 
 use App\Business;
 use App\Helpers\File;
@@ -23,8 +18,10 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
     private $form_rules = [
-        'email'                 => 'required|email|unique:users,email,',
-        'nickname'              => 'required|max:255|unique:users,nickname,',
+      //  'email'                 => 'required|email|unique:users,email,',
+        'email'                 => 'required|email',
+       // 'nickname'              => 'required|max:255|unique:users,nickname,',
+        'nickname'              => 'required|max:255',
         'old_password'          => 'required_with:password,password_confirmation',
         'password'              => 'required_with:old_password,password_confirmation|confirmed|different:old_password',
         'password_confirmation' => 'required_with:old_password,password|different:old_password|same:password',
@@ -39,8 +36,8 @@ class UserController extends Controller
 
         if ($user) {
             // Validacion de campos unique
-            $this->form_rules['email'] .= $user->id;
-            $this->form_rules['nickname'] .= $user->id;
+    /*        $this->form_rules['email'] .= $user->id;
+            $this->form_rules['nickname'] .= $user->id;*/
 
             // Validaciones segun tipo de user
             if ($user->hasRole(['admin', 'person'])) {

@@ -9,7 +9,7 @@
 			</button>
 			<div class="navbar-brand">
 				<a href="/home" class="navbar-brand">
-					@if($main_company['logo'])
+                    @if(isset($main_company['logo']))
 						<span class="navbar-brand-text">
 							<img src="{{$main_company['logo']}}" alt="">
 						</span>
@@ -24,7 +24,20 @@
 			</div>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
+            @include('partial.navigation_help')
+			<ul class="nav navbar-nav pull-right" style="margin-right: -10px;">
+
+                <li>
+                    <a href="/home" role="button">
+                        <span class="fui fui-home"></span> Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/products" role="button">
+                        <span class="fui fui-image"></span> Shop
+                    </a>
+                </li>
 
 				@include('user.partial.menu_top')
 
@@ -123,7 +136,6 @@
 				@endif
 
 			</ul>
-			@include('partial.navigation_help')
 		</div>
 	</nav>
 

@@ -2,11 +2,6 @@
 
 namespace app\Http\Controllers;
 
-/*
- * Antvel - Home Controller
- *
- * @author  Gustavo Ocanto <gustavoocanto@gmail.com>
- */
 
 use App\FreeProduct;
 use App\Helpers\productsHelper;
@@ -69,10 +64,10 @@ class HomeController extends Controller
         $jumbotronClasses = ['jumbotron-box-left', 'jumbotron-box-right']; //carousel implementation
 
         $banner = [
-            '/img/banner/01.png',
-            '/img/banner/02.png',
-            '/img/banner/03.png',
-            '/img/banner/04.png',
+            '/img/banner/slider1.jpg',
+            '/img/banner/slider2.jpg',
+            '/img/banner/slider3.jpg',
+            '/img/banner/slider4.jpg'
         ];
 
         // $this->createTags();

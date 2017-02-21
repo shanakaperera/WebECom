@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav navbar-right pull-right">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             <span class="fui fui-question-circle"></span>

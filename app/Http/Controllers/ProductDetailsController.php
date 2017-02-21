@@ -2,11 +2,6 @@
 
 namespace app\Http\Controllers;
 
-/*
- * Antvel - Products Details Controller
- *
- * @author  Gustavo Ocanto <gustavoocanto@gmail.com>
- */
 
 use App\Helpers\featuresHelper;
 use App\Http\Controllers\Controller;
@@ -583,7 +578,7 @@ class ProductDetailsController extends Controller
                     $data['default'] = $array['general'];
                 }
             } else {
-                if ($array['values']) {
+                if (isset($array['values'])) {
                     $data['condition'] = 'specific_data';
                 } else {
                     $data['condition'] = 'custom_specific_data';

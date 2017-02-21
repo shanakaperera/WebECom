@@ -2,11 +2,6 @@
 
 namespace app\Http\Controllers;
 
-/*
- * Antvel - Admin Panel Controller
- *
- * @author  Gustavo Ocanto <gustavoocanto@gmail.com>
- */
 
 use App\Http\Controllers\Controller;
 
@@ -20,8 +15,8 @@ class WpanelController extends Controller
     public function index()
     {
         $panel = [
-            'left'   => ['width' => '2'],
-            'center' => ['width' => '10'],
+            'left' => ['width' => '10'],
+            'center' => ['width' => '2'],
         ];
 
         return view('wpanel.home', compact('panel'));

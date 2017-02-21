@@ -62,6 +62,7 @@
 		
 	</div>
 </div>
+
 <div class="page-header">
 	<h6>{{ trans('user.social_info')}}</h6>
 </div>
@@ -82,6 +83,33 @@
 			</label>
 			{!! Form::text('facebook_app_id',null,['class'=>'form-control']) !!}
 	</div>
+</div>
+
+<div class="page-header">
+    <h6>{{ trans('company.logo')}}</h6>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="pull-left">
+            <div class="user-photo">
+                <label for="logo">
+                    <img src="{{$company->logo!=null?$company->logo:'/img/no-image.jpg'}}" class="thumbnail"
+                         style="width:80px;" alt="Photo" id="c_logo">
+                    <input type="file" name="logo"
+                           onchange="javascript: var selectedFile = event.target.files[0];
+                                        var reader = new FileReader();var imgtag = document.getElementById('c_logo');
+                                        imgtag.title = selectedFile.name;
+
+                                        reader.onload = function(event) {
+                                        imgtag.src = event.target.result;
+                                        };
+                                   reader.readAsDataURL(selectedFile);"
+                           id="logo" style="display: none;">
+                </label>
+                <span>Click to update</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="row">&nbsp;</div>

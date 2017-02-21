@@ -26,7 +26,7 @@
 			{!! Form::label('birthday',trans('user.birth_date')) !!}:
 			<div class="input-group">
       			<div class="input-group-addon input-sm"><span class="glyphicon glyphicon-calendar"></span></div>
-				{!! Form::date('birthday', \Carbon\Carbon::now(), ['ng-disabled'=>'disabled','class'=>'input-sm form-control']) !!}
+				{!! Form::date('birthday',$user['birthday']==null?\Carbon\Carbon::now():$user['birthday'], ['ng-disabled'=>'disabled','class'=>'input-sm form-control']) !!}
 			</div>
 		</div>
 		<div class="col-md-4">

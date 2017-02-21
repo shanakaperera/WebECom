@@ -1,6 +1,8 @@
 <?php
 
 namespace app\Helpers;
+use Milon\Barcode\DNS1D;
+
 
 /**
  * Antvel - Utilities Functions Helper.
@@ -310,7 +312,7 @@ class Utility
      *
      * @return [html] a html label will be returned with the barcode information
      */
-    public static function printBarCode($product = null, $type = 'EAN8')
+    public static function printBarCode($product = null, $type = 'C128')
     {
         if ($product == null || !$product) {
             return trans('globals.barcode_error_msg');

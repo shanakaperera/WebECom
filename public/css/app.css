@@ -4045,7 +4045,7 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   line-height: 1.042;
   height: 53px;
   font-weight: 700;
-  padding: 14px 21px;
+  padding: 14px 10px;
 }
 .navbar-brand > [class*="fui-"] {
   font-size: 17px;
@@ -6453,7 +6453,7 @@ footer .credits .col-md-12 {
 .navbar-wrapper .navbar .navbar-header div.navbar-brand {
   min-height: 2.8em;
   padding: 5px 5px;
-  margin-right: -5em;
+  margin-right: -10em;
 }
 .navbar-wrapper .navbar .navbar-header a.navbar-brand {
   font-style: italic;
@@ -6463,7 +6463,7 @@ footer .credits .col-md-12 {
   font-size: 0.4em;
   position: relative;
   bottom: -1.1em;
-  right: 26.3em;
+  right: 23.3em;
 }
 .navbar-wrapper .navbar .navbar-header a.navbar-brand span.navbar-brand-text {
   font-size: 1.4em;
@@ -6609,7 +6609,7 @@ section.home .home-title-section {
   border-bottom: 1px solid #ecf0f1;
 }
 section.home .home-carousel-box {
-  height: 300px;
+  height: 400px;
 }
 section.home .home-carousel-box .jumbotron-box-right {
   margin: 40px 10px 0;
@@ -6619,7 +6619,7 @@ section.home .home-carousel-box .jumbotron-box-right {
   background-color: black;
   padding: 10px;
   box-shadow: 1px 1px 5px black;
-  opacity: 0.2;
+  opacity: 0.5;
   transition: opacity 1s;
 }
 section.home .home-carousel-box .jumbotron-box-right h5 {
@@ -6641,7 +6641,7 @@ section.home .home-carousel-box .jumbotron-box-left {
   background-color: black;
   padding: 10px;
   box-shadow: 1px 1px 5px black;
-  opacity: 0.2;
+  opacity: 0.5;
   transition: opacity 1s;
 }
 section.home .home-carousel-box .jumbotron-box-left h5 {

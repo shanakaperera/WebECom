@@ -41,7 +41,7 @@
         
         <div class="row">&nbsp;</div>
         <div class="row">&nbsp;</div>
-       
+
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -53,31 +53,32 @@
                             @if ($product->status == 0)
                                 <span class="label label-warning">{{ trans('globals.inactive') }}</span>
                             @endif
-                            
+
                             <a href="{{ action('ProductsController@index') }}/{{ $product->id }}">
                                 @if (isset($product->features['images'][0]))
-                                    <img class="thumbnail"  
-                                         src="{{ $product->features['images'][0] }}?w=100" alt="{{ $product->name }}" 
+                                    <img class="thumbnail"
+                                         src="{{ $product->features['images'][0] }}?w=100" alt="{{ $product->name }}"
                                          width="100" height="100">
                                 @else
                                     <img class="thumbnail" src="/img/no-image.jpg" alt="{{ $product->name }}" width="100" height="100">
                                 @endif
                                 <p style="overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis;">
-                                    {{ $product->name }}</small>
+                                    <small> {{ $product->name }}</small>
                                 </p>
                             </a>
+
                             @if ($product->stock <= $product->low_stock)
-                                <span>{{ $product->stock }} {{ trans('store.inStock') }} 
+                                <span>{{ $product->stock }} {{ trans('store.inStock') }}
                                     <span class="label label-danger">{{ ' '.trans('product.inputs_view.low_stock') }}</span>
                                 </span>
                             @endif
-                            <small>{{ $product->view_counts.' '.trans('product.globals.views') }} 
-                            @if ($product->rate_count > 0)
-                                {{ Utility::showRate($product->rate_val) }}
-                            @endif
+                            <small>{{ $product->view_counts.' '.trans('product.globals.views') }}
+                                @if ($product->rate_count > 0)
+                                    {{ Utility::showRate($product->rate_val) }}
+                                @endif
                             </small>
                             <p>
-                            {!! \Utility::printBarCode($product) !!}
+                                {!! \Utility::printBarCode($product) !!}
                             </p>
                             <p>
                                 <strong>{{ Utility::showPrice($product->price) }}</strong>
@@ -86,8 +87,9 @@
                             </p>
                         </div>
                     </div>
-                </div><!-- /.col-lg-4 -->
+                </div>
             @endforeach
+            <p> </p>
         </div>
 
     @if (count($products) < 1)

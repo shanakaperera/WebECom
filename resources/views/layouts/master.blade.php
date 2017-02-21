@@ -27,6 +27,7 @@
 		{!! Html::style('/css/carousel.css') !!}
 		{!! Html::style('/css/angucomplete-alt.css') !!}
 		{!! Html::style('/css/app.css') !!}
+            {!! Html::style('/css/bootstrap-tagsinput.css') !!}
 	@show
 
 	<!--[if lt IE 9]>
@@ -144,6 +145,9 @@
 
 {{-- Antvel functions --}}
 {!! Html::script('/js/app.js') !!}
+
+{{-- Tags Input --}}
+{!! Html::script('/js/bootstrap-tagsinput.min.js') !!}
 
 @section('scripts')
 	{{-- Antvel angucomplete-alt.js version --}}

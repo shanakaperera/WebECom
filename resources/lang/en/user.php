@@ -43,7 +43,7 @@ return [
         'user_account_settings'        => 'Account Settings',
         'website'                      => 'Web Site',
         'wishlist'                     => 'Wishlist',
-        'wpanel'                       => 'Web Panel',
+        'wpanel'                       => 'Advanced Settings',
         'your_account'                 => 'Your Account',
         'your_orders'                  => 'Your Orders',
         'your_sales'                   => 'Your Sales',
@@ -73,7 +73,6 @@ return [
         'newsletter_sign_up'           => 'Sign up for the newsletter and we\'ll inform you of updates, offers and more.',
         'your_email_address_label'     => 'Your email address',
         'sign_up_label'                => 'Sign up',
-
         //Message
         'saved'                        => 'Profile was successfully saved!',
         'are_you_sure'                 => 'Are you sure you want to desactivate your account?',

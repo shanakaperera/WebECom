@@ -2,11 +2,6 @@
 
 namespace app\Helpers;
 
-/*
- * Antvel - App Menus Helper
- *
- * @author  Gustavo Ocanto <gustavoocanto@gmail.com>
- */
 
 use App\Order;
 use App\Product;
@@ -46,8 +41,11 @@ class Menu
                 ->count();
 
             $menu = array_merge($menu, [
+
                 ['route' => '/products/myProducts', 'text' => trans('user.your_products'), 'icon' => 'glyphicon glyphicon-briefcase', 'cont' => $productsLowStock],
+
                 ['route' => '/orders/usersOrders', 'text' => trans('user.your_sales'), 'icon' => 'glyphicon glyphicon-piggy-bank', 'cont' => $salesOpen],
+
             ]);
         }
 
@@ -107,7 +105,7 @@ class Menu
         //Menu para empresas
         if (\Auth::user()->hasRole(['business', 'admin'])) {
             $menu = [
-                ['route' => '/wpanel',            'text' => trans('user.dashboard'),              'icon' => 'glyphicon glyphicon-dashboard'],
+                ['route' => '/user/dashboard', 'text' => trans('user.dashboard'),                 'icon' => 'glyphicon glyphicon-dashboard'],
                 ['route' => '/wpanel/profile',    'text' => trans('company.store_config'),        'icon' => 'glyphicon glyphicon-cog'],
                 ['route' => '/wpanel/categories', 'text' => trans('categories.product_category'), 'icon' => 'glyphicon glyphicon-tasks'],
                 ['route' => '/wpanel/features',   'text' => trans('features.product_features'),   'icon' => 'glyphicon glyphicon-th-list'],

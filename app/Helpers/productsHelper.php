@@ -188,6 +188,7 @@ class productsHelper
 
             $indentation = ['&#9679;', '&#8226;', '&ordm;'][$icon];
             $outPut[$row['id']] = $s.$indentation.'&nbsp;'.$row['name'];
+            // $outPut[$row['id']] = $row['name'];
         }
     }
 }
